@@ -1,5 +1,6 @@
 const configure = {
-  REACT_APP_API_BASE:
-    process.env.REACT_APP_API_BASE || "http://localhost:8000/api",
+  API_ENDPOINT:
+    process.env.REACT_APP_API_BASE ||
+    "https://petful-server-nikadarab.herokuapp.com/api",
 };
 export default configure;

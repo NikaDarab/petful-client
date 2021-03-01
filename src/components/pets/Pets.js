@@ -196,11 +196,7 @@ class Pets extends Component {
   };
 
   componentDidMount() {
-    const options = {
-      headers: {
-        Authorization: `Bearer ${config.API_KEY}`,
-      },
-    };
+    const options = {};
     //get dogs
     fetch(`${config.API_ENDPOINT}/dogs`, options)
       .then((res) => res.json())
