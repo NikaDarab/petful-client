@@ -10,13 +10,7 @@ class Pets extends Component {
   state = {
     dogs: [],
     cats: [],
-    people: [
-      "Randy Lahey",
-      "Trevor Cory",
-      "Jim Lahey",
-      "Saron Yitebak",
-      "Shahram Darab",
-    ],
+    people: ["Randy Lahey", "Trevor Cory", "Jim Lahey", "Saron Yitebak"],
     currentUser: "",
     toggleForm: null,
     showMessage: false,
@@ -129,7 +123,6 @@ class Pets extends Component {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${config.API_KEY}`,
       },
     };
     fetch(`${config.API_ENDPOINT}/dogs`, options)
@@ -146,6 +139,7 @@ class Pets extends Component {
   };
 
   handleAdoptCat = () => {
+    this.handleAdoptPerson();
     this.state.people[0] === this.state.currentUser
       ? this.setState({
           showMessage: !this.state.showMessage,
@@ -153,7 +147,7 @@ class Pets extends Component {
       : this.setState({
           showMessage: false,
         });
-    this.handleAdoptPerson();
+
     const options = {
       method: "DELETE",
       headers: {
@@ -196,15 +190,14 @@ class Pets extends Component {
   };
 
   componentDidMount() {
-    const options = {};
     //get dogs
-    fetch(`${config.API_ENDPOINT}/dogs`, options)
+    fetch(`${config.API_ENDPOINT}/dogs`)
       .then((res) => res.json())
       .then((dogs) => this.setState({ dogs }))
       .catch((err) => console.log(err));
 
     //get cats
-    fetch(`${config.API_ENDPOINT}/cats`, options)
+    fetch(`${config.API_ENDPOINT}/cats`)
       .then((res) => res.json())
       .then((cats) => this.setState({ cats }))
       .catch((err) => console.log(err));
@@ -250,7 +243,7 @@ class Pets extends Component {
             </div>
           </div>
         ) : (
-          <h2>End of the list</h2>
+          <h2>NO PETS</h2>
         )}
       </>
     );

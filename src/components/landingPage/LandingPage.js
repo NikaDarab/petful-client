@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import fifoImg from "../assets/FIFO.png";
+
 let LandingPage = () => {
   return (
     <>
@@ -27,11 +29,11 @@ let LandingPage = () => {
           className="AdoptButton animate__animated animate__fadeInLeftBig"
           to="/adoptionPage"
         >
-          ADOPT YOUR FURR BABY TODAY
+          ADOPT YOUR FURR BABY
         </Link>
       </div>
       <div class="image">
-        <img className="FIFOimg" src="/assets/FIFO.png" alt="fifo img" />
+        <img className="FIFOimg" src={fifoImg} alt="fifo img" />
       </div>
     </>
   );

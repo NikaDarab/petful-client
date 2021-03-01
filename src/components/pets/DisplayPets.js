@@ -10,7 +10,7 @@ class DisplayPets extends Component {
               src={this.props.pets[0].imageURL}
               alt={this.props.pets[0].name}
             />
-            <h1>{this.props.pets[0].name}</h1>
+            <h3>{this.props.pets[0].name}</h3>
             <p>Age : {this.props.pets[0].age}</p>
             <p>Breed: {this.props.pets[0].breed}</p>
             <p>Gender: {this.props.pets[0].gender}</p>
