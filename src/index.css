@@ -51,6 +51,7 @@ body {
 .AdoptButton {
   background-color: white;
   margin: 0 20%;
+  padding: 0 5px;
   font-size: 13px;
 }
 .people {

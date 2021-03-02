@@ -3,9 +3,9 @@ import DisplayPets from "./DisplayPets";
 import People from "../people/People";
 import Form from "./Form";
 import config from "../../config";
-import store from "../store";
+// import store from "../store";
 
-let newDogs = store.dogs.map((dog) => dog);
+// let newDogs = store.dogs.map((dog) => dog);
 
 class Pets extends Component {
   state = {
