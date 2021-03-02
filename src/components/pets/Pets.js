@@ -3,8 +3,9 @@ import DisplayPets from "./DisplayPets";
 import People from "../people/People";
 import Form from "./Form";
 import config from "../../config";
-import { createHashHistory } from "history";
-export const history = createHashHistory();
+import store from "../store";
+
+let newDogs = store.dogs.map((dog) => dog);
 
 class Pets extends Component {
   state = {
@@ -15,7 +16,6 @@ class Pets extends Component {
     toggleForm: null,
     showMessage: false,
   };
-
   handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -62,7 +62,6 @@ class Pets extends Component {
     setInterval(() => {
       let currentName = this.state.currentUser;
       if (!this.state.people.includes(currentName)) {
-        console.log("current user is the list");
         this.setState({
           toggleForm: false,
         });
@@ -125,6 +124,7 @@ class Pets extends Component {
         "Content-Type": "application/json",
       },
     };
+
     fetch(`${config.API_ENDPOINT}/dogs`, options)
       .then((res) => {
         if (!res.ok) {
@@ -155,6 +155,7 @@ class Pets extends Component {
         Authorization: `Bearer ${config.API_KEY}`,
       },
     };
+
     fetch(`${config.API_ENDPOINT}/cats`, options)
       .then((res) => {
         if (!res.ok) {
@@ -243,7 +244,7 @@ class Pets extends Component {
             </div>
           </div>
         ) : (
-          <h2>NO PETS</h2>
+          <h2>no more pets</h2>
         )}
       </>
     );
