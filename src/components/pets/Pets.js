@@ -219,21 +219,22 @@ class Pets extends Component {
         {this.state.dogs.length && this.state.cats.length ? (
           <>
             <People people={this.state.people}></People>
-            {this.state.showMessage ? (
-              <div className="msg animate__animated animate__bounceInLeft">
-                {" "}
-                <h2> You have adopted a pet! </h2>{" "}
-              </div>
-            ) : null}
             <Form
               toggleForm={this.state.toggleForm}
               handleSubmit={this.handleSubmit}
             />
+
             <div className="col">
               <DisplayPets
                 pets={this.state.dogs}
                 handleAdopt={this.handleAdoptDog}
               />
+              {this.state.showMessage ? (
+                <div className="msg animate__animated animate__bounceInUp">
+                  {" "}
+                  <h2> You have adopted a pet! </h2>{" "}
+                </div>
+              ) : null}
               <button
                 className="btn"
                 disabled={this.state.people[0] !== this.state.currentUser}
@@ -241,7 +242,14 @@ class Pets extends Component {
               >
                 adopt
               </button>
+              {this.state.showMessage ? (
+                <div className="msg animate__animated animate__bounceInDown">
+                  {" "}
+                  <h2> You have adopted a pet! </h2>{" "}
+                </div>
+              ) : null}
             </div>
+
             <div className="col">
               <DisplayPets
                 pets={this.state.cats}
