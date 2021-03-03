@@ -7,7 +7,7 @@ class People extends Component {
         <div>
           {" "}
           <div className="listOfPeople">
-            <p className="people">Queue of people</p>
+            <h1 className="people">Queue of people</h1>
             <ul>
               {this.props.people.map((person) => (
                 <li key={this.props.people.indexOf(person)}>{person}</li>

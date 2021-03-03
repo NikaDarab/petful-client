@@ -3,7 +3,7 @@ import DisplayPets from "./DisplayPets";
 import People from "../people/People";
 import Form from "./Form";
 import config from "../../config";
-// import store from "../store";
+import store from "../store";
 
 // let newDogs = store.dogs.map((dog) => dog);
 
@@ -103,6 +103,16 @@ class Pets extends Component {
       } else if (!this.state.people.length) {
         this.setState({
           toggleForm: false,
+        });
+      }
+      if (!this.state.dogs.length) {
+        this.setState({
+          dogs: [...store.dogs],
+        });
+      }
+      if (!this.state.cats.length) {
+        this.setState({
+          cats: [...store.cats],
         });
       }
     }, 5000);
@@ -207,44 +217,42 @@ class Pets extends Component {
     return (
       <>
         {this.state.dogs.length && this.state.cats.length ? (
-          <div>
+          <>
             <People people={this.state.people}></People>
             {this.state.showMessage ? <h1>You adopted a pet!</h1> : null}
             <Form
               toggleForm={this.state.toggleForm}
               handleSubmit={this.handleSubmit}
             />
-
-            <div className="displayPets">
+            <div className="col">
+              <DisplayPets
+                pets={this.state.dogs}
+                handleAdopt={this.handleAdoptDog}
+              />
               <button
-                className="adopt"
+                className="btn"
                 disabled={this.state.people[0] !== this.state.currentUser}
                 onClick={this.handleAdoptDog}
               >
                 adopt
               </button>
-              <DisplayPets
-                pets={this.state.dogs}
-                handleAdopt={this.handleAdoptDog}
-              />
             </div>
-
-            <div className="displayPets">
+            <div className="col">
+              <DisplayPets
+                pets={this.state.cats}
+                handleAdopt={this.handleAdoptCat}
+              />
               <button
-                className="adopt"
+                className="btn"
                 disabled={this.state.people[0] !== this.state.currentUser}
                 onClick={this.handleAdoptCat}
               >
                 adopt
               </button>
-              <DisplayPets
-                pets={this.state.cats}
-                handleAdopt={this.handleAdoptCat}
-              />
             </div>
-          </div>
+          </>
         ) : (
-          <h2>no more pets</h2>
+          <h1>Please wait while loading</h1>
         )}
       </>
     );
