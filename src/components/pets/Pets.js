@@ -219,7 +219,12 @@ class Pets extends Component {
         {this.state.dogs.length && this.state.cats.length ? (
           <>
             <People people={this.state.people}></People>
-            {this.state.showMessage ? <h1>You adopted a pet!</h1> : null}
+            {this.state.showMessage ? (
+              <div className="msg animate__animated animate__bounceInLeft">
+                {" "}
+                <h2> You have adopted a pet! </h2>{" "}
+              </div>
+            ) : null}
             <Form
               toggleForm={this.state.toggleForm}
               handleSubmit={this.handleSubmit}

@@ -59,7 +59,10 @@ body {
   text-align: center;
   margin: 0 13px;
 }
-
+.msg {
+  border: solid rgb(3, 49, 44);
+  width: 300px;
+}
 .listOfPeople {
   background-color: white;
   margin: 10px 35%;
