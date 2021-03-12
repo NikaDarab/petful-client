@@ -32,7 +32,7 @@ let LandingPage = () => {
           ADOPT YOUR FURR BABY
         </Link>
       </div>
-      <div className="image">
+      <div>
         <img className="FIFOimg" src={fifoImg} alt="fifo img" />
       </div>
     </>
